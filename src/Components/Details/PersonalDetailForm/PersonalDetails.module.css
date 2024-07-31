@@ -1,0 +1,58 @@
+.heading {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.detailsFilling {
+    margin: 70px 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle1{
+    background-color: rgb(105, 105, 239);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgb(83, 81, 81);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+.circle {
+    background-color: rgb(139, 133, 133);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.connector {
+    border: 0.5px solid gray;
+    width: 350px;
+    height: 0;
+}
+
+.name {
+    margin-top: 10px;
+    text-align: center;
+}
