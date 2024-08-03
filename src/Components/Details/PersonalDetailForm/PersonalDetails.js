@@ -43,7 +43,7 @@ function PersonalDetails() {
                     <span className={styles.name}>Review details</span>
                 </div>
             </div>
-            {/* <PersonalForm /> */}
+
             
             {ctx.step === 1 && <PersonalForm />}
             {ctx.step === 2 && <DemographicDetails />}

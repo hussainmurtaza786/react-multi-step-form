@@ -1,31 +1,53 @@
-
-.button {
-    padding: 4px 10px;
-}
-
-.btn1 {
-    width: 70px;
-    height: 35px;
-    margin: 4px 10px;
-    border-radius: 7px;
-    border: none;
-
-    background-color: rgb(185, 209, 217);
-
-}
-
-.btn2 {
-    width: 70px;
-    height: 35px;
-    margin: 4px 10px;
-    cursor: pointer;
-    border-radius: 7px;
-    background-color: darkblue;
-    color: rgb(202, 202, 202);
-    border: none;
-}
-.result{
+.form {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.form p {
+    font-weight: bold;
+    margin: 5px 2px;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    width: 400px;
+    padding: 20px;
+}
+
+.button {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    margin: 20px 0px;
+}
+
+.btn1,
+.btn2 {
+    width: 70px;
+    height: 35px;
+    margin: 0 10px;
+    border-radius: 7px;
+    border: none;
+}
+
+.btn1 {
+    background-color: rgb(185, 209, 217);
+}
+
+.btn2 {
+    cursor: pointer;
+    background-color: darkblue;
+    color: rgb(202, 202, 202);
+}
+
+.value {
+    color: darkblue;
+    text-decoration: underline;
 }
