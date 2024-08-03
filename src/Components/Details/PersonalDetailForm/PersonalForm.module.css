@@ -1,68 +1,7 @@
+
 * {
     margin: 0;
     padding: 0;
-}
-
-.form input {
-    background: transparent;
-
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid grey;
-    margin: 10px 3px;
-    padding: 4px 6px;
-    width: 10pc;
-    font-size: 15px;
-
-
-}
-
-.error {
-    font-size: 14px;
-    color: #ff2f2f;
-}
-
-.form input.input-error {
-    border: 1px solid red;
-    background-color: #ff9090;
-
-
-}
-
-.pass {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 4px;
-
-}
-
-.pass svg {
-    margin: 2px 4px;
-
-}
-
-.uName svg {
-    margin: 2px 4px;
-}
-
-.uName {
-    display: flex;
-    /* flex-direction: column; */
-    /* margin: 10px 8px; */
-
-}
-
-.gmail {
-    display: flex;
-    margin: 10px 8px;
-}
-
-.gmail svg {
-    margin: 2px 4px;
-
-
 }
 
 .form {
@@ -72,28 +11,64 @@
     align-items: center;
 }
 
+.form input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid grey;
+    margin: 10px 3px;
+    padding: 4px 6px;
+    width: 200px; 
+    font-size: 15px;
+}
+
+.form input.input-error {
+    border-bottom: 1px solid red;
+
+}
+
+.error {
+    font-size: 14px;
+    color: #ff2f2f;
+}
+
+.uName, .pass, .gmail {
+    display: flex;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.pass {
+    position: relative;
+}
+
+
+
+.pass div {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
 .button {
-    padding: 4px 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.btn1, .btn2 {
+    width: 70px;
+    height: 35px;
+    margin: 0 10px;
+    border-radius: 7px;
+    border: none;
 }
 
 .btn1 {
-    width: 70px;
-    height: 35px;
-    margin: 4px 10px;
-    border-radius: 7px;
-    border: none;
-
     background-color: rgb(185, 209, 217);
-
 }
 
 .btn2 {
-    width: 70px;
-    height: 35px;
-    margin: 4px 10px;
     cursor: pointer;
-    border-radius: 7px;
     background-color: darkblue;
     color: rgb(202, 202, 202);
-    border: none;
 }

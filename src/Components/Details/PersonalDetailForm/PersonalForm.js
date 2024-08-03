@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useFormik } from 'formik'
 import style from './PersonalForm.module.css'
-import { basicSchema } from '../../../Schemas/Index'
+import { personalFormSchema } from '../../../Schemas'
 import { IoEyeSharp } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa";
 import CartContext from '../../../Store/Cart-Context';
@@ -10,7 +10,7 @@ function PersonalForm() {
 
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
-    const {formValues,setFormValues,nextPage} = useContext(CartContext)
+    const { formValues, setFormValues, nextPage } = useContext(CartContext)
 
     const togglePasswordVisibility = () => {
         setIsPasswordVisible(!isPasswordVisible);
@@ -20,21 +20,21 @@ function PersonalForm() {
         setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
     };
     const onSubmit = (values) => {
-        console.log("Submited values==>", values)
+        // console.log("Submited values==>", values)
         setFormValues(values)
         nextPage()
     }
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
-            // ...formValues,
+
             email: formValues.email,
             userName: formValues.userName,
             password: formValues.password,
             confirmPassword: formValues.confirmPassword,
         },
 
-        validationSchema: basicSchema,
+        validationSchema: personalFormSchema,
         onSubmit,
     })
 
@@ -59,7 +59,7 @@ function PersonalForm() {
                 ></input>
             </div>
 
-            {errors.UserName && touched.UserName && <p className={style.error}>{errors.UserName} </p>}
+            {errors.userName && touched.userName && <p className={style.error}>{errors.UserName} </p>}
 
             <div className={style.pass}>
                 <svg width='25px' className="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"></path></svg>
@@ -106,7 +106,7 @@ function PersonalForm() {
                 </div>
             </div>
 
-            {errors.ConfirmPassword && touched.ConfirmPassword && <p className={style.error}>{errors.ConfirmPassword} </p>}
+            {errors.confirmPassword && touched.confirmPassword && <p className={style.error}>{errors.confirmPassword} </p>}
 
             <div className={style.gmail}>
                 <svg width='25' className="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-.4 4.25l-7.07 4.42c-.32.2-.74.2-1.06 0L4.4 8.25c-.25-.16-.4-.43-.4-.72 0-.67.73-1.07 1.3-.72L12 11l6.7-4.19c.57-.35 1.3.05 1.3.72 0 .29-.15.56-.4.72z"></path></svg>
@@ -126,7 +126,7 @@ function PersonalForm() {
 
 
             <div className={style.button}>
-                <button type='button' className={style.btn1}> Back </button>
+                <button disabled type='button' className={style.btn1}> Back </button>
                 <button type='submit' className={style.btn2}>Next</button>
 
             </div>

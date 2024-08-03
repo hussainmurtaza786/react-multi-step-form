@@ -8,10 +8,16 @@ const CartProvider = (props) => {
         userName: "",
         password: "",
         confirmPassword: "",
+        dateOfBirth: "",
+        gender: "",
+        mobileNo: "",
+        city: "",
+        address: "",
+        country: "",
 
     })
 
-   
+
     const moveToNextStep = () => {
         const nextStep = step + 1;
         if (nextStep > 3) {
@@ -20,6 +26,7 @@ const CartProvider = (props) => {
             setStep(nextStep);
         }
     };
+
 
     const moveToPreviousStep = () => {
         const prevStep = step - 1;
@@ -42,12 +49,7 @@ const CartProvider = (props) => {
         prevPage: moveToPreviousStep,
         setFormValues: _setFormValues,
         formValues,
-        // formValues:{
-        //     email: "",
-        //     userName: "",
-        //     password: "",
-        //     confirmPassword: "",
-        // }
+       
     }
 
 

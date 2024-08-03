@@ -1,0 +1,31 @@
+
+.button {
+    padding: 4px 10px;
+}
+
+.btn1 {
+    width: 70px;
+    height: 35px;
+    margin: 4px 10px;
+    border-radius: 7px;
+    border: none;
+
+    background-color: rgb(185, 209, 217);
+
+}
+
+.btn2 {
+    width: 70px;
+    height: 35px;
+    margin: 4px 10px;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: darkblue;
+    color: rgb(202, 202, 202);
+    border: none;
+}
+.result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

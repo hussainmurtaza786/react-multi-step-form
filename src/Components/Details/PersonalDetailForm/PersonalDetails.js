@@ -4,13 +4,12 @@ import PersonalForm from './PersonalForm';
 import style from './PersonalForm.module.css'
 import CartContext from '../../../Store/Cart-Context';
 import DemographicDetails from '../../DemographicDetailsForm/DemographicDetails';
+import Result from '../../Result/Result';
 
 
 function PersonalDetails() {
 
-    const step = {}
-    const moveToPreviousStep = {}
-    const moveToNextStep = {}
+    
 
     const ctx = useContext(CartContext)
     // ctx.formV
@@ -48,7 +47,7 @@ function PersonalDetails() {
             
             {ctx.step === 1 && <PersonalForm />}
             {ctx.step === 2 && <DemographicDetails />}
-            {ctx.step === 3 && <Form3 />}
+            {ctx.step === 3 && <Result />}
 {/* 
             <div className={style.button}>
                 <button className={style.btn1} onClick={ctx.PrevPage}> Back </button>
