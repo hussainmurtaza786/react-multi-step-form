@@ -5,9 +5,19 @@ import CartProvider from './Store/CartProvider';
 function App() {
     return (
         <CartProvider>
+           
             <PersonalDetails />
         </CartProvider>
     );
 }
 
 export default App;
+
+
+function DummyComp ({children}){
+    return(
+        <div>
+            hello world {children("XYZ")}
+        </div>
+    )
+}

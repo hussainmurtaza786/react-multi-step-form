@@ -9,10 +9,10 @@ import Result from '../../Result/Result';
 
 function PersonalDetails() {
 
-    
+
 
     const ctx = useContext(CartContext)
-    // ctx.formV
+
     return (
         <div>
             <h1 className={styles.heading}>Multi-Step Form Demo</h1>
@@ -20,7 +20,11 @@ function PersonalDetails() {
             <div className={styles.detailsFilling}>
                 <div className={styles.step}>
                     <div className={styles.box}>
-                        <div className={ctx.step === 1 ? styles.circle1 : styles.circle}>1</div>
+                        <div className={ctx.step === 1 ? styles.circle1 : styles.circle}>
+                            {ctx.step > 1 ? <p>&#10003; </p> : '1'}
+
+                        </div>
+
                     </div>
                     <span className={styles.name}>Personal details</span>
                 </div>
@@ -29,7 +33,10 @@ function PersonalDetails() {
 
                 <div className={styles.step}>
                     <div className={styles.box}>
-                        <div className={ctx.step === 2 ? styles.circle1 : styles.circle}>2</div>
+                        <div className={ctx.step === 2 ? styles.circle1 : styles.circle}>
+                            {ctx.step > 2 ? <p>&#10003; </p> : '2'}
+
+                        </div>
                     </div>
                     <span className={styles.name}>Demographic details</span>
                 </div>
@@ -38,21 +45,20 @@ function PersonalDetails() {
 
                 <div className={styles.step}>
                     <div className={styles.box}>
-                        <div className={ctx.step === 3 ? styles.circle1 : styles.circle}>3</div>
+                        <div className={ctx.step === 3 ? styles.circle1 : styles.circle}>
+                        {ctx.step > 3 ? <p>&#10003; </p> : '3'}
+                            
+                            </div>
                     </div>
                     <span className={styles.name}>Review details</span>
                 </div>
             </div>
 
-            
+
             {ctx.step === 1 && <PersonalForm />}
             {ctx.step === 2 && <DemographicDetails />}
             {ctx.step === 3 && <Result />}
-{/* 
-            <div className={style.button}>
-                <button className={style.btn1} onClick={ctx.PrevPage}> Back </button>
-                <button type='button' className={style.btn2} onClick={ctx.NextPage}> Next </button>
-            </div> */}
+
         </div>
     );
 }
