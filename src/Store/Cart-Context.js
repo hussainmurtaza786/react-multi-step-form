@@ -1,11 +1,11 @@
-import React from "react";
+// import React from "react";
 
-const CartContext = React.createContext({
-    nextPage: () => { },
-    prevPage: () => { },
-    step: 1,
-    formValues: {},
-    setFormValues: () => { }
-})
+// const CartContext = React.createContext({
+//     nextPage: () => { },
+//     prevPage: () => { },
+//     step: 1,
+//     formValues: {},
+//     setFormValues: () => { }
+// })
 
-export default CartContext
+// export default CartContext

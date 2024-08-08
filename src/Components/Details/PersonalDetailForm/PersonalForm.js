@@ -5,12 +5,16 @@ import { personalFormSchema } from '../../../Schemas'
 import { IoEyeSharp } from "react-icons/io5";
 import { FaRegEyeSlash } from "react-icons/fa";
 import CartContext from '../../../Store/Cart-Context';
+import { useDispatch, useSelector } from 'react-redux';
+import { stepAction } from '../../../store-redux/step-slice';
+import { valueAction } from '../../../store-redux/value-slice';
 
 function PersonalForm() {
 
+    
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
-    const { formValues, setFormValues, nextPage } = useContext(CartContext)
+    const { email, userName, password, confirmPassword} = useSelector(state => state.form.personal)
 
     const togglePasswordVisibility = () => {
         setIsPasswordVisible(!isPasswordVisible);
@@ -19,19 +23,20 @@ function PersonalForm() {
     const toggleConfirmPasswordVisibility = () => {
         setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
     };
+
+    const dispatch = useDispatch()
     const onSubmit = (values) => {
-        // console.log("Submited values==>", values)
-        setFormValues(values)
-        nextPage()
+        dispatch(valueAction.personalValue(values))
+        dispatch(stepAction.moveToNextStep())
     }
 
     const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
         initialValues: {
 
-            email: formValues.email,
-            userName: formValues.userName,
-            password: formValues.password,
-            confirmPassword: formValues.confirmPassword,
+            email: email,
+            userName: userName,
+            password: password,
+            confirmPassword: confirmPassword,
         },
 
         validationSchema: personalFormSchema,
@@ -54,7 +59,6 @@ function PersonalForm() {
                     type='text'
                     placeholder='User Name'
                     onBlur={handleBlur}
-                    // className={style.error}
                     className={errors.userName && touched.userName ? style['input-error'] : ""}
                 ></input>
             </div>

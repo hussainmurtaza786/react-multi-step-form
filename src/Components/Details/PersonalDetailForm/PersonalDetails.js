@@ -5,13 +5,16 @@ import style from './PersonalForm.module.css'
 import CartContext from '../../../Store/Cart-Context';
 import DemographicDetails from '../../DemographicDetailsForm/DemographicDetails';
 import Result from '../../Result/Result';
+import { useSelector } from 'react-redux';
 
 
 function PersonalDetails() {
 
 
 
-    const ctx = useContext(CartContext)
+    // const ctx = useContext(CartContext)
+   const step= useSelector(state => state.step.step)
+
 
     return (
         <div>
@@ -20,8 +23,8 @@ function PersonalDetails() {
             <div className={styles.detailsFilling}>
                 <div className={styles.step}>
                     <div className={styles.box}>
-                        <div className={ctx.step === 1 ? styles.circle1 : styles.circle}>
-                            {ctx.step > 1 ? <p>&#10003; </p> : '1'}
+                        <div className={step === 1 ? styles.circle1 : styles.circle}>
+                            {step > 1 ? <p>&#10003; </p> : '1'}
 
                         </div>
 
@@ -33,8 +36,8 @@ function PersonalDetails() {
 
                 <div className={styles.step}>
                     <div className={styles.box}>
-                        <div className={ctx.step === 2 ? styles.circle1 : styles.circle}>
-                            {ctx.step > 2 ? <p>&#10003; </p> : '2'}
+                        <div className={step === 2 ? styles.circle1 : styles.circle}>
+                            {step > 2 ? <p>&#10003; </p> : '2'}
 
                         </div>
                     </div>
@@ -45,19 +48,19 @@ function PersonalDetails() {
 
                 <div className={styles.step}>
                     <div className={styles.box}>
-                        <div className={ctx.step === 3 ? styles.circle1 : styles.circle}>
-                        {ctx.step > 3 ? <p>&#10003; </p> : '3'}
-                            
-                            </div>
+                        <div className={step === 3 ? styles.circle1 : styles.circle}>
+                            {step > 3 ? <p>&#10003; </p> : '3'}
+
+                        </div>
                     </div>
                     <span className={styles.name}>Review details</span>
                 </div>
             </div>
 
 
-            {ctx.step === 1 && <PersonalForm />}
-            {ctx.step === 2 && <DemographicDetails />}
-            {ctx.step === 3 && <Result />}
+            {step === 1 && <PersonalForm />}
+            {step === 2 && <DemographicDetails />}
+            {step === 3 && <Result />}
 
         </div>
     );

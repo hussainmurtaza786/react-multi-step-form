@@ -4,29 +4,35 @@ import style from './style.module.css'
 import { useFormik } from 'formik';
 import { demographicFormSchema } from '../../Schemas';
 import CartContext from '../../Store/Cart-Context';
+import { useDispatch, useSelector } from 'react-redux';
+import { stepAction } from '../../store-redux/step-slice';
+import { valueAction } from '../../store-redux/value-slice';
+
+
 
 function DemographicDetails() {
-
-  const { formValues, setFormValues, nextPage, prevPage } = useContext(CartContext)
+  
+  const dispatch = useDispatch()
+  const { dateOfBirth, gender, mobileNo, city, address, country } = useSelector(state => state.form.demographic)
 
 
   const onSubmit = (values) => {
-    console.log("Submited values==>", values)
-    setFormValues(values)
-    nextPage()
+    dispatch(valueAction.demographicValue(values))
+    dispatch(stepAction.moveToNextStep())
   }
+  
   const onPrevPage = () => {
-    prevPage()
+    dispatch(stepAction.moveToPreviousStep())
   }
 
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: {
-      dateOfBirth: formValues.dateOfBirth,
-      gender: formValues.gender,
-      mobileNo: formValues.mobileNo,
-      city: formValues.city,
-      address: formValues.address,
-      country: formValues.country,
+      dateOfBirth: dateOfBirth,
+      gender: gender,
+      mobileNo: mobileNo,
+      city: city,
+      address: address,
+      country: country,
     },
 
     validationSchema: demographicFormSchema,
@@ -98,7 +104,7 @@ function DemographicDetails() {
 
         <div>
           <select
-          id='country'
+            id='country'
             name="country"
             value={values.country}
             onChange={handleChange}

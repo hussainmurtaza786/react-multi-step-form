@@ -35,7 +35,7 @@ const CartProvider = (props) => {
         } else {
             setStep(prevStep);
         }
-    };
+    }
 
     const _setFormValues = (newValues) => {
         setFormValues(prev => {
